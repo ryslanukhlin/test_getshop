@@ -5,6 +5,7 @@
     z-index: 1;
     position: relative;
     text-align: center;
+    overflow: hidden;
 
     &__banner {
         display: block;
@@ -16,9 +17,14 @@
         right: 0;
         top: 40%;
         padding: 20px 10px 10px 10px;
+        transition: all 0.3s ease;
 
         h1 {
             font-style: 16px;
+        }
+
+        &_hidden {
+            right: -100%;
         }
     }
 
@@ -39,4 +45,9 @@
         height: 52px;
         margin-top: 20px;
     }
+}
+
+.frameVideo {
+    width: 100%;
+    height: 100vh;
 }

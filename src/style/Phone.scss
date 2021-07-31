@@ -6,6 +6,45 @@
     position: relative;
     text-align: center;
 
+    &__exit {
+        position: absolute;
+        right: 0;
+        background: #ffffff;
+        width: 88px;
+        height: 52px;
+        margin-right: 20px;
+        margin-top: 20px;
+
+        &_final {
+            background: black;
+        }
+
+        .exit1 {
+            width: 28.68px;
+            height: 3px;
+            background-color: black;
+            transform: rotate(45deg);
+            position: absolute;
+            left: 31px;
+            top: 24px;
+            &_final {
+                background-color: white;
+            }
+        }
+        .exit2 {
+            width: 28.68px;
+            height: 3px;
+            background-color: black;
+            transform: rotate(-45deg);
+            position: absolute;
+            left: 31px;
+            top: 24px;
+            &_final {
+                background-color: white;
+            }
+        }
+    }
+
     &__banner {
         display: block;
         background-color: #86d3f4;
@@ -17,6 +56,19 @@
 
         h1 {
             font-size: 26px;
+        }
+
+        &_final {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            h1 {
+                font-weight: 700;
+                font-size: 32px;
+                line-height: 37px;
+                text-align: center;
+            }
         }
     }
 
@@ -41,13 +93,22 @@
     }
 
     &__btn {
-        border: 1px solid #4e4e4e;
-        color: #4e4e4e;
+        border: 1px solid black;
+        color: black;
         background: #86d3f4;
         margin-top: 13px;
         width: 289px;
         height: 52px;
         margin-right: 7px;
+
+        &:disabled {
+            border: 1px solid #4e4e4e;
+            color: #4e4e4e;
+        }
+        &:hover:enabled {
+            background-color: black;
+            color: white;
+        }
     }
 
     .phone__wrapperInput {
@@ -88,5 +149,25 @@
 
     .phone__input:checked + .phone__label::after {
         opacity: 1;
+    }
+}
+
+.qrcode {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    margin-right: 40px;
+    margin-bottom: 40px;
+
+    &__txt {
+        margin-right: 10px;
+        text-align: right;
+        width: 194px;
+        font-weight: 500;
+        font-size: 16px;
+        color: white;
     }
 }
