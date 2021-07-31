@@ -1,0 +1,92 @@
+.phone {
+    height: 100vh;
+    width: 100%;
+    background: url('../static/bg.png') center center/cover no-repeat;
+    z-index: 1;
+    position: relative;
+    text-align: center;
+
+    &__banner {
+        display: block;
+        background-color: #86d3f4;
+        width: 380px;
+        height: 100%;
+        z-index: 2;
+        position: absolute;
+        padding: 72px 21.5px;
+
+        h1 {
+            font-size: 26px;
+        }
+    }
+
+    &__numbers {
+        font-size: 32px;
+        font-weight: bold;
+        margin-top: 13px;
+    }
+
+    &__txt {
+        margin-top: 13px;
+    }
+
+    &__wrapperInput {
+        display: flex;
+        justify-content: center;
+    }
+
+    &__label {
+        margin-left: 50px;
+        padding-right: 70px;
+    }
+
+    &__btn {
+        border: 1px solid #4e4e4e;
+        color: #4e4e4e;
+        background: #86d3f4;
+        margin-top: 13px;
+        width: 289px;
+        height: 52px;
+        margin-right: 7px;
+    }
+
+    .phone__wrapperInput {
+        position: relative;
+    }
+
+    .phone__input {
+        -webkit-appearance: none;
+        appearance: none;
+        position: absolute;
+    }
+
+    .phone__label::before {
+        content: '';
+        display: block;
+        height: 40px;
+        width: 40px;
+        border: 2px solid black;
+        position: absolute;
+        top: -4px;
+        left: 24px;
+        z-index: 1;
+    }
+
+    .phone__label::after {
+        content: '';
+        display: block;
+        height: 40px;
+        width: 40px;
+
+        background: url('../static/check.svg') no-repeat;
+        position: absolute;
+        top: 5px;
+        left: 33px;
+        z-index: 2;
+        opacity: 0;
+    }
+
+    .phone__input:checked + .phone__label::after {
+        opacity: 1;
+    }
+}

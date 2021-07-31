@@ -1,8 +1,13 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import '../style/Home.scss';
 import qrcode from '../static/qrcode.png';
 
 const Home: React.FC = () => {
+    const history = useHistory();
+
+    const pushPhonePage = () => history.push('/phone');
+
     return (
         <div className="home">
             <div className="home__banner">
@@ -11,7 +16,9 @@ const Home: React.FC = () => {
                 <div className="home__subtxt">
                     Сканируйте QR-код <br /> или нажмите ОК
                 </div>
-                <button className="btn">ОК</button>
+                <button onClick={pushPhonePage} className="btn">
+                    ОК
+                </button>
             </div>
         </div>
     );
