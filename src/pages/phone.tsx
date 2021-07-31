@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import Calculate from '../Component/Calculate';
 import '../style/Phone.scss';
 import qrcode from '../static/qrcode.png';
-import { TValidateSchema } from '../types';
+import { KeyBoadtEnum, TValidateSchema } from '../types';
 
 const Phone: React.FC = () => {
     const history = useHistory();
@@ -11,6 +11,60 @@ const Phone: React.FC = () => {
     const [check, setCheck] = React.useState<boolean>(false);
     const [error, setError] = React.useState<boolean>(false);
     const [disabled, setDisabled] = React.useState<boolean>(true);
+
+    React.useEffect(() => {
+        document.addEventListener('keydown', function (event) {
+            const code = event.code;
+            let number = null;
+            console.log(code);
+
+            switch (code) {
+                case KeyBoadtEnum.Numpad1:
+                    number = 1;
+                    break;
+                case KeyBoadtEnum.Numpad2:
+                    number = 2;
+                    break;
+                case KeyBoadtEnum.Numpad3:
+                    number = 3;
+                    break;
+                case KeyBoadtEnum.Numpad4:
+                    number = 4;
+                    break;
+                case KeyBoadtEnum.Numpad5:
+                    number = 5;
+                    break;
+                case KeyBoadtEnum.Numpad6:
+                    number = 6;
+                    break;
+                case KeyBoadtEnum.Numpad7:
+                    number = 7;
+                    break;
+                case KeyBoadtEnum.Numpad8:
+                    number = 8;
+                    break;
+                case KeyBoadtEnum.Numpad9:
+                    number = 9;
+                    break;
+                case KeyBoadtEnum.Numpad0:
+                    number = 0;
+                    break;
+                case KeyBoadtEnum.Backspace:
+                    document.getElementById('phoneInput')!.innerText = '+7(___)___-__-__';
+                    setPhone('');
+                    break;
+                default:
+                    break;
+            }
+            if (number !== null) {
+                const contentInput = document
+                    .getElementById('phoneInput')!
+                    .innerText.replace('_', String(number));
+
+                document.getElementById('phoneInput')!.innerText = contentInput;
+            }
+        });
+    }, []);
 
     React.useEffect(() => {
         if (phone.length === 10 && check) {
